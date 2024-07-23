@@ -1,0 +1,19 @@
+---------------------------USE REACT DOCUMENTATION ---------------------------
+
+1. Understanding jsx :-
+- In App.js we write html code in return(...); . We can only write a code in one div form like <div class = "Bha"> ...</div>. If we want to write something b ut not in div , if we created another tag like <h1>Hello</h1>  It'll give error , to get rid of these error we use <> <h1>Hello</h1> <div class = "Bha"> ...</div> </> we need  to write code in <> So it'll not give any error . <> is known as jsx fragment
+
+- we need to end the tag like for example: <h1>...</h1> . If you don't it'll give you error
+
+NOTE:- When you're creating an application first import BOOTSTARP CSS and BOOTSTARP JAVASCRIPT from react docs ./Introduction/starterPack 
+NOTE:- When you import from bootstrap we've to change class to className and href="#" to href="/" . The use of / was when you click on something it'll directly take you to responding Page for example in navbar when you click on the about page it'll take you to about section
+NOTE:- In BOOTSTARP if we ant to give white color to text we have to write in its className="text-light"
+NOTE:- In single page applications the page will not reload when we click on something to do so when we are using <a href...> (anchor tag) in place of a use Link and in place of href use to . SO the page will not reloads 
+
+
+If we want the build folder (build folder means where the total application like whole project presents) in terminal enter -> npm run build  ...Then it'll create e a separate folder called build . You can go to your files (file manager) and locate your project and then open build foler and right click and enter open wiuth code ..and it'll open in vs code you can run it . It'll show your project
+..................................................................................
+
+BIGG NOTE:- Uncomment the commented lines ion the App.js(line 3,7,56,61,62,63,64,66)  and there are some lines in Navbar.js like uncomment 3 line and 19 line and comment line 20 and also uncomment line 23-25.
+
+If you uncomment all these lines then it will work like About is enabled in website So that you can do routing there means when you clicked on About it'll show about content
