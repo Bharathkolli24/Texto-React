@@ -1,4 +1,4 @@
-import React, {useState} from 'react'       //{useState} is known as Hook -Hook is nothing but acquiring the properties of classes without creating classes 
+import React, { useState } from 'react'; //{useState} is known as Hook -Hook is nothing but acquiring the properties of classes without creating classes 
 
 export default function TextForm(props) {
     const handleUpClick = () =>{
@@ -24,6 +24,7 @@ export default function TextForm(props) {
         var text = document.getElementById('myBox');
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Copied to Clipboard",  "success")                               
     } 
     const handleExtraSpaces = () => {                          //it'll remove the extra spaces 
@@ -42,20 +43,20 @@ export default function TextForm(props) {
     return (
         <>
         <div className="container" style={{color:props.mode ==='light' ?'#232442':'white'}}>
-            <h1>{props.heading}</h1>
+            <h1 className='mb-4'>{props.heading}</h1>
             <div className="mb-3"> 
-            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode ==='light' ?'white':'grey',color:props.mode ==='light' ?'#232442':'white'}} id="myBox" rows="8"></textarea>    {/*     here we've to listen for handleOnChange and then we've to set the value of it  by using value={text}. And we've put two {{}} because one curly brac e of javascript nd another curly brace is for object in javascript */}
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode ==='light' ?'white':'#261954',color:props.mode ==='light' ?'#232442':'white'}} id="myBox" rows="8"></textarea>    {/*     here we've to listen for handleOnChange and then we've to set the value of it  by using value={text}. And we've put two {{}} because one curly brac e of javascript nd another curly brace is for object in javascript */}
             </div>    
-            <button className="btn btn-primary mx-1" onClick={handleUpClick}> Convert to UpperCase </button>
-            <button className="btn btn-primary mx-1" onClick={handleLowerClick}> Convert to LowerCase </button>
-            <button className="btn btn-primary mx-1" onClick={handleClearClick}> Clear Text </button>
-            <button className="btn btn-primary mx-1" onClick={handleCopy}> Copy Text </button>
-            <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}> Remove Extra Spaces </button>
+            <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}> Convert to UpperCase </button>
+            <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleLowerClick}> Convert to LowerCase </button>
+            <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}> Clear Text </button>
+            <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}> Copy Text </button>
+            <button disabled = {text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}> Remove Extra Spaces </button>
         </div>
         <div className="container" style={{color:props.mode ==='light' ?'#232442':'white'}}>
             <h1 className='mt-4'>Your text summary</h1>
-            <p>{text.split(" ").length} words and {text.length} characters</p>  {/*  if we want bold letters use <b></b> */}
-            <p>{0.08 * text.split(" ").length} Minutes to read</p>
+            <p>{text.split(" ").filter((element)=>{return element.length !== 0}).length} words and {text.length} characters</p>  {/*  if we want bold letters use <b></b>......{return element.length!=0} Here it will say that if the element length != 0 then it'll stay in the array and if = 0 then it'll not stay in the array*/}
+            <p>{0.08 * text.split(" ").filter((element)=>{return element.length !== 0}).length} Minutes to read</p>
             <h2 className='mt-4'>Preview</h2>
             <p>{text.length>0?text:"Enter something in the textbox above to preview"}</p>
         </div>

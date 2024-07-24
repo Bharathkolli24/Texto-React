@@ -1,10 +1,10 @@
 import './App.css';
 import Alerts from './components/4.Alerts';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/1.Navbar';
 import TextForm from './components/2.TextForm';
 import React, { useState } from 'react';
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 
@@ -31,7 +31,7 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor = '#232442'
       showAlert("Dark mode enabled", "success")
-      document.title = 'Texto - Dark Mode'
+      // document.title = 'Texto - Dark Mode'
 
       // setInterval(() => {                                         it is used to interrupt the title of website..when you enable this the title will change according to given text in given time interval
       //   document.title = "TextUtils is Amazing website"
@@ -45,7 +45,7 @@ function App() {
       setMode('light')
       document.body.style.backgroundColor = 'white'
       showAlert("Light mode enabled", "success")
-      document.title = 'Texto - Light Mode'
+      // document.title = 'Texto - Light Mode'
 
     }
   }
@@ -53,20 +53,20 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Navbar title="Texto" aboutTextUtils="About" mode={mode} toggleMode={toggleMode}/>
         {/* <Navbar/>        it's for default props*/}
         <Alerts alert={alert} />
         <div className="container my-3" mode={mode}>
-          {/* <Routes> */}
-            {/* <Route exact path="/about" element={<About />}></Route> */}
-            {/* <Route exact path="/" element= {*/} <TextForm heading="Enter text to analyze " mode={mode} showAlert={showAlert}/>  {/*}></Route> */}   {/*We're passing props here , it'll gets from Navbar as we have imported navbar too...We can also change the title here(It is used to reuse the application)...line 2 was automtically written(imported) by itself when we write this*/}
-          {/* </Routes> */}
+          <Routes>
+            <Route exact path="/about" element={<About mode={mode}/>}></Route>
+            <Route exact path="/" element= { <TextForm heading="Try Texto - Word Counter, Character Counter, Remove extra spaces " mode={mode} showAlert={showAlert}/>}></Route>  {/*We're passing props here , it'll gets from Navbar as we have imported navbar too...We can also change the title here(It is used to reuse the application)...line 2 was automtically written(imported) by itself when we write this*/}
+           </Routes> 
         </div>
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 
 }
 
-export default App;                           
+export default App;
