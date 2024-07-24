@@ -17,3 +17,13 @@ If we want the build folder (build folder means where the total application like
 BIGG NOTE:- Uncomment the commented lines ion the App.js(line 3,7,56,61,62,63,64,66)  and there are some lines in Navbar.js like uncomment 3 line and 19 line and comment line 20 and also uncomment line 23-25.
 
 If you uncomment all these lines then it will work like About is enabled in website So that you can do routing there means when you clicked on About it'll show about content
+
+--------------------------------------------------------------------
+
+REFER THIS TON DEPLOY  -> https://create-react-app.dev/docs/deployment/  in that websute by pressing ctrl+f write giothub pages you'll redirected to location then follow those steps
+- To deploy this is github first enter this line   "homepage": "https://myusername.github.io/my-app",(in place od myusername enter your github username an in place of my-app enter your app name shown in github repository cop[y and paste it] in package.json 2nd line above name 
+- Enter this command in terminal npm install --save gh-pages it'l install some pakages
+- "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  Enter this two lines in package.json ..after scripts{..
+- Then in terminal enter npm run deploy

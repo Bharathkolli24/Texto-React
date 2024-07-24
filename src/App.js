@@ -31,7 +31,7 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor = '#232442'
       showAlert("Dark mode enabled", "success")
-      document.title = 'TextUtils - Dark Mode'
+      document.title = 'Texto - Dark Mode'
 
       // setInterval(() => {                                         it is used to interrupt the title of website..when you enable this the title will change according to given text in given time interval
       //   document.title = "TextUtils is Amazing website"
@@ -45,7 +45,7 @@ function App() {
       setMode('light')
       document.body.style.backgroundColor = 'white'
       showAlert("Light mode enabled", "success")
-      document.title = 'TextUtils - Light Mode'
+      document.title = 'Texto - Light Mode'
 
     }
   }
@@ -54,7 +54,7 @@ function App() {
   return (
     <>
       {/* <BrowserRouter> */}
-        <Navbar title="TextUtils" aboutTextUtils="About" mode={mode} toggleMode={toggleMode}/>
+        <Navbar title="Texto" aboutTextUtils="About" mode={mode} toggleMode={toggleMode}/>
         {/* <Navbar/>        it's for default props*/}
         <Alerts alert={alert} />
         <div className="container my-3" mode={mode}>
