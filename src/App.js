@@ -61,7 +61,7 @@ function App() {
           <Routes>
             <Route exact path="/about" element={<About mode={mode}/>}></Route>
             <Route exact path="/" element= { <TextForm heading="Try Texto - Word Counter, Character Counter, Remove extra spaces " mode={mode} showAlert={showAlert}/>}></Route>  {/*We're passing props here , it'll gets from Navbar as we have imported navbar too...We can also change the title here(It is used to reuse the application)...line 2 was automtically written(imported) by itself when we write this*/}
-           </Routes> 
+          </Routes> 
         </div>
       </BrowserRouter>
     </>
