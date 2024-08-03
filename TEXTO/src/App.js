@@ -1,0 +1,70 @@
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './App.css';
+import Navbar from './components/1.Navbar';
+import TextForm from './components/2.TextForm';
+import Alert from './components/4.Alerts';
+import About from './components/About';
+
+ 
+function App() {
+  const [mode, setMode] = useState('light'); //Default mode is white. Whether dark mode is enabled or not
+  const [alert, setAlert] = useState(null);
+
+  //This is for Alert messages
+  const showAlert = (message, type)=>{
+      setAlert({
+        msg: message,
+        type: type
+      })
+      setTimeout(() => {
+          setAlert(null);
+      }, 2000);
+  }
+
+
+  // This is for Dark Mode and Light Mode
+  const toggleMode = ()=>{
+    if(mode === 'light'){
+      setMode('dark');
+      document.body.style.backgroundColor = '#232442';
+      showAlert("Dark mode has been enabled", "success");
+      // setInterval(() => {                                         it is used to interrupt the title of website..when you enable this the title will change according to given text in given time interval
+      //   document.title = "TextUtils is Amazing website"
+      // },1000);
+      // setInterval(() => {
+      //   document.title = "Install Now"
+      // },1500);
+    }
+    else{
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light mode has been enabled", "success");
+    }
+  }
+
+  return (
+    <>
+    <BrowserRouter>
+    <Navbar title="Texto" aboutTextUtils="About" mode={mode} toggleMode={toggleMode} key={new Date()} />
+    <Alert alert={alert}/>
+    <div className="container my-3">
+    <Routes>
+    {/* /users --> Component 1
+        /users/home --> Component 2 */}
+          {/* <Route exact path="/about">
+            <About mode={mode} />
+          </Route>
+          <Route exact path="/">
+            <TextForm showAlert={showAlert} heading="Try Texto - word counter, character counter, remove extra spaces" mode={mode}/>
+          </Route> */}
+          <Route exact path="/" element= { <TextForm heading="Try Texto - Word Counter, Character Counter, Remove extra spaces " mode={mode} showAlert={showAlert}/>}></Route>  {/*We're passing props here , it'll gets from Navbar as we have imported navbar too...We can also change the title here(It is used to reuse the application)...line 2 was automatically written(imported) by itself when we write this*/}
+          <Route exact path="/about" element={<About mode={mode}/>}></Route>
+    </Routes>
+    </div>
+    </BrowserRouter>
+    </> 
+  );
+}
+
+export default App;
