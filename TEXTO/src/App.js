@@ -49,7 +49,7 @@ function App() {
     <Navbar title="Texto" aboutTextUtils="About" mode={mode} toggleMode={toggleMode} key={new Date()} />
     <Alert alert={alert}/>
     <div className="container my-3">
-    <Routes>
+    <Routes basename="/test_repository">
     {/* /users --> Component 1
         /users/home --> Component 2 */}
           {/* <Route exact path="/about">
