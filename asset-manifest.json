@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Bharathkolli24/Texto-React/static/css/main.024be287.css",
-    "main.js": "/Bharathkolli24/Texto-React/static/js/main.71853d60.js",
+    "main.js": "/Bharathkolli24/Texto-React/static/js/main.eb39adf4.js",
     "static/js/453.8cd82758.chunk.js": "/Bharathkolli24/Texto-React/static/js/453.8cd82758.chunk.js",
     "index.html": "/Bharathkolli24/Texto-React/index.html",
     "main.024be287.css.map": "/Bharathkolli24/Texto-React/static/css/main.024be287.css.map",
-    "main.71853d60.js.map": "/Bharathkolli24/Texto-React/static/js/main.71853d60.js.map",
+    "main.eb39adf4.js.map": "/Bharathkolli24/Texto-React/static/js/main.eb39adf4.js.map",
     "453.8cd82758.chunk.js.map": "/Bharathkolli24/Texto-React/static/js/453.8cd82758.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.024be287.css",
-    "static/js/main.71853d60.js"
+    "static/js/main.eb39adf4.js"
   ]
 }
