@@ -2,7 +2,7 @@
   "homepage":"./http://github.com/Bharathkolli24/Texto-React",
   "name": "texto",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
