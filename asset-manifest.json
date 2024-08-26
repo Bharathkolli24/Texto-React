@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "./http://github.com/Bharathkolli24/Texto-React/static/css/main.024be287.css",
-    "main.js": "./http://github.com/Bharathkolli24/Texto-React/static/js/main.9a64793b.js",
+    "main.js": "./http://github.com/Bharathkolli24/Texto-React/static/js/main.be265b38.js",
     "static/js/453.8cd82758.chunk.js": "./http://github.com/Bharathkolli24/Texto-React/static/js/453.8cd82758.chunk.js",
     "index.html": "./http://github.com/Bharathkolli24/Texto-React/index.html",
     "main.024be287.css.map": "./http://github.com/Bharathkolli24/Texto-React/static/css/main.024be287.css.map",
-    "main.9a64793b.js.map": "./http://github.com/Bharathkolli24/Texto-React/static/js/main.9a64793b.js.map",
+    "main.be265b38.js.map": "./http://github.com/Bharathkolli24/Texto-React/static/js/main.be265b38.js.map",
     "453.8cd82758.chunk.js.map": "./http://github.com/Bharathkolli24/Texto-React/static/js/453.8cd82758.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.024be287.css",
-    "static/js/main.9a64793b.js"
+    "static/js/main.be265b38.js"
   ]
 }
