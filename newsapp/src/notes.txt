@@ -1,0 +1,33 @@
+<---------------------------------------------------CLASS BASED COMPONENTS----------------------------------------------------->
+
+
+- When you created in command prompt by using the command npx create-react-app appname . It was by default functional based component\
+- First we've created TEXTO app which was functional based component
+
+* REACT LIFECYCLE :- The series of events that happen from mounting of react component to its unmounting 
+      - Mounting  :- Birth of your component
+      - Update :- Growth of your component
+      - Unmount :- Death of your component
+
+* Methods in React Component Lifecycle
+
+ - The render() method is used to render HTML of the component in react. This method is required for a class based component to render the DOM. It runs during the mounting and updating of your component. render() method should be pure ie you cannot modify state inside it!
+
+ - The componentDidUpdate() method runs after the component output has been rendered to the DOM. (or) When you use ComponentDidMount() then React will call it when your component is added (mounted) to the screen
+
+ - The componentDidUpdate() method is invoked as soon as the updating happens. The most common use case for the componentDidUpdate() method is updating the DOM in response to prop or state changes.
+
+ - The componentWillUnmount() lifecycle method is called just before the component is unmounted and destroyed. Usually used to perform cleanups
+
+
+ ------ During mounting ----------
+RUNS -> Constructor > render > React updates DOM and refs > ComponentDidMount    (First Constructor will run and then Render and ...)
+
+ ------ During Updating ----------
+When will updates -> When It receive New props or when we run setState or forceUpdate() then it will updates. After updating first render method will run and then react updates DOMs and componentDidUpdate will run
+
+ ------ During unMount ----------
+ Directly componentWillUnmount will run
+
+
+- if it was a class based component we have to use this. 

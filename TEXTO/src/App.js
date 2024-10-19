@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Navbar from './components/1.Navbar';
 import TextForm from './components/2.TextForm';
 import Alert from './components/4.Alerts';
-import About from './components/About';
+// import About from './components/About';
 
  
 function App() {
@@ -45,24 +45,24 @@ function App() {
 
   return (
     <>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    {/* <BrowserRouter> */}
     <Navbar title="Texto" aboutTextUtils="About" mode={mode} toggleMode={toggleMode} key={new Date()} />
     <Alert alert={alert}/>
     <div className="container my-3">
-    <Routes>
+    {/* <Routes> */}
     {/* /users --> Component 1
         /users/home --> Component 2 */}
           {/* <Route exact path="/about">
             <About mode={mode} />
           </Route>
-          <Route exact path="/">
+          <Route exact path="/">*/}
             <TextForm showAlert={showAlert} heading="Try Texto - word counter, character counter, remove extra spaces" mode={mode}/>
-          </Route> */}
-          <Route exact path="/" element= { <TextForm heading="Try Texto - Word Counter, Character Counter, Remove extra spaces " mode={mode} showAlert={showAlert}/>}></Route>  {/*We're passing props here , it'll gets from Navbar as we have imported navbar too...We can also change the title here(It is used to reuse the application)...line 2 was automatically written(imported) by itself when we write this*/}
-          <Route exact path="/about" element={<About mode={mode}/>}></Route>
-    </Routes>
+          {/* </Route>  */}
+          {/* <Route exact path="/" element= { <TextForm heading="Try Texto - Word Counter, Character Counter, Remove extra spaces " mode={mode} showAlert={showAlert}/>}></Route>  {/*We're passing props here , it'll gets from Navbar as we have imported navbar too...We can also change the title here(It is used to reuse the application)...line 2 was automatically written(imported) by itself when we write this*/}
+          {/*<Route exact path="/about" element={<About mode={mode}/>}></Route> */}
+    {/* </Routes> */}
     </div>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
     </> 
   );
 }

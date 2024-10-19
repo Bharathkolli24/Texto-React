@@ -1,0 +1,148 @@
+----------------------------------Tomato. ----------------------------
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  FRONTEND  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+> TO RUN THE SERVER USE THIS COMMAND IN TERMINAL -> npm run dev
+> WHEN YOU GFETTING ERROR IN TERMINAL WHILE YOU'RE RUNNING THE COMMAND run dev . It's bcoz running the command in the wrong folder. To get rid of this error in terminal write you're react app  name and then hit enter and then write run dev (For EX;- app name is mp-app then in terminal write this cd my-app)
+> If we want to create a state variable then use ->const [... , set..] = useState()
+>  If we want to create a context variable then use ->const {... , ...} = useContext()
+- In terminal enter npm create vite@latest > Enter
+- It will asks for project name then enter Frontend and select React and          
+select JavaScript
+- Then we have to enter into frontend folder so type cd frontend and press enter
+- Now we have to install our dependencies so type npm install. It will add our dependencies
+- Now we have to install one package . Type npm install react-router-dom
+- Now we have to run this project . So enter npm run dev 
+- After creating Navbar ( With CSS also )
+- Then in src > pages > create Cart , Home and Placeholder Pages for each one of them create css and jsx files separately like for Cart ( Cart.css and Cart.jsx)like that 
+- Then in src > main.jsx > write this -> import { BrowserRouter } from 'react-router-dom' and after Mount the app in between BrowserRouter
+- Then in src > App.jsx then after Navbar write Routes and it will automatically import at the top and in Routes write Route (it'll create a routes as much as we want).This Route are used to route to page when we click on that
+-Then in components another folder called as Header and also create files Header.jsx and Header.css and in jsx file write rafce and press enter and in second line write import './Header.css' 
+- After creating header . Head to Pages> Home> Home.jsx then mount this header page component into that Home.jsx file (make sure in top you will get import...)
+- Then in Header.jsx file create one header-contents div and add the contents in the div like h2 and p tags 
+- After that go to index.css file there add the @keyframes for transition purpose (When we will reload the page the heading and tags will get be applied this transitions) Add this transition in header.css file in header-contents 
+
+----------------------- MENU --------------------------------------
+
+- Then in components add a folder called ExploreMenu folder and also create jsx and css files for that
+- In jsx file import the menu list ( form asset6s folder ) and create one div with class name and id name explore-menu and in that div add tags and create another div called explore-menu-list-item in the same div after creating and add map function with the index and item 
+- Then mount this Explore menu component in Home file after Header
+- Then go to Home and add functionalities that is create a state variable called category
+- Pass that category in the explore menu as a prop in the same Home file . And those categories and setCategories in the ExploreMenu.jsx file (pass as props in const ExploreMenu() ) and later provide the onclick functions in the div
+
+------------------------------------ CONTEXT API --------------------------
+
+- We have to create a context API
+- In src folder create a Context folder in that folder create a StoreContext.jsx file
+- After creating files.. In jsx file write export const StoreContext = createContext(null)... while writing createContext it will show the suggestion . Click it so the import is auto generated
+- Now create StoreContextProvider as arrow function and write (this.props) to receive the props
+- After that create a variable as const contextValue and it will become object
+- In main.jsx file in BrowserRouter put this tag <StoreContextProvider> and the mount the app(Kindha vuntundhi paiki thisukelli pettali) into that Storecomponent tag
+
+- NOW WE HAVE THE SUPPORT OF CONTEXT API IN OUR PROJECT 
+- Now opent the Storecontext.jsx file and in the assets > foodlist we will mount this food list into Storecontext.jsx file (import it)
+
+------------------------ FOOD DISPLAY --------------------------
+
+To display the food items we need to create a folder in components
+
+- In components create a folder called FoodDisplay and aslso create jsx and css files
+- After creating files import the css file and in FoodDisplay library add one const for accessing the store context API(While writing the StoreContext You will get the suggestion then click it and then it'll automatically imported ) 
+- Create a div called food-display 
+- After go to Home file and mount(add) this food_display component along with category while writing FoodDisplay name click the suggestion shown below an import will automatically occurs at top in Home file. Mount this FoodDisplay after ExploreMenu
+- After go to FoodDisplay.jsx file and in that const FoodDisplay = () => {  , in the brackets after = , de-structure the components by writing like this {category} in ()
+- After that create a div called food-display-list and in that div create one map function of food_list with item, index as parameters
+- After that create a new folder called FoodItems in components and also create jsx and css files for that (This folder is for getting the image,description,pricfe ,etc..for that food item)
+- And ion the file we have created import the css file and in the FoodItem brackets de-structue ({id,name,price,description})
+- And return to FoodDisplay.jsx file and mount the Fooditem file in trhe return statement. And while writing the <FoodItem/> (it will suggest it and click so that it will imports it ) and in the <FoodItem here pass the id,name,image,etc..pass them as props/>
+- And return to FoodItem.jsx file and create div called food-items and creating div's for images, prices, description, etc.. So that images, description, name and prices are imported (with the help of props) and do some changes in the layout in CSS file
+- After FoodDisplay go to FoodItem folder and add the css properties for food-item class
+- After adding css properties return to FoodItem.jsx file to create ADD button . For that create a state variable 
+- After that... in food-item-img-container after img tag write {} in that brackets write this  { if fooditem count is 0 it will provide one add button and if greater than 0 it will provide one counter}
+  
+   [ SOME CHANGES HAVE DONE ... Here the foodItem will changes to cartItems[id] ...REFER THERE IS A POINYT HIGHLITED WITH >>FURTHER POINT..THERE THE CHANGES ARE PROVIDED ]
+
+- After writing content in this {} completely. Then add CSS properties to  food-item-img-container class
+- Then go to StoreContext.jsx file and create a state variable of cartItems and initialize with {} brackets
+- After that create a functionality for addToCart where it will be const addToCart =(itemId).....Here one entry will be created and key Id will be itemId and the value will be no. of quantity  
+- After that create a functionality for removeFromCart where it will be const removeFromCart =(itemId).....It will remove the item from the cart
+- After pass those add to cart and remove from cart to context value ...Pass them as ->  cartItems,setCartItems,addToCart,removeFromCart
+- Now we can access cartItems,addToCart,removeFromCart in foodItem component using the context API
+- In FoodItem.jsx file after state variable create a const variable of useContext(StoreContext)..while writing StoreContext we will get suggestion click it ..It will import the StoreContext
+
+>>> - In food-item-img-container div after img tag Before there is !itemCount change it to !cardItem and also there is 3 setItemCount -> change the setItemCount to addToCart(id) and removeFromCart(id) and in p tag Before there was a item count change it to cartItems[id]
+
+- After that in FoodItem.jsx file remove the const state variable which we created earlier (I'm Commenting It ) and in the import statement in the first line remove the useState from it. Because i have commented it.
+- After that go to StoreContext.jsx file after removeFromCart function create a useEffect where we will pass one arrow function. When the cartItems are updated we will log the cartItems state. 
+- In Browser if we click on add open the console if we click on add the object will change to 1. It is all because StoreContext
+
+----------------------- EXPLORE OUR MENU ( If we click on salads, it will show only salad category )  ------------------------------
+
+- To show the item wise category then go to FoodDisplay.jsx file after map() function line create a if block ....And move the return statement ( return <FoodItem key={index} id={item._id}..... ) 
+
+----------------------------- AP DONLOAD ---------------------------------
+- In  components create a folder name AppDownload and create css and jsx fiules for ikt and mount thne css file into jsx file 
+- Mount AppDownload in the Home after FoodDisplay
+
+
+------------------------------ FOOTER ------------------------------------
+
+- In components create one folder named Footer in that folder create jx and css files and import the css file into jsx file 
+- Mount this footer in the App component . Add this after closing the div named app
+- Return to footer.jsx file and create a div with className='footer' and create another 3 div's
+
+---------------------------- RESPONSIVE ----------------------------------
+
+- IF we open in phone the website needs to look god within all dimensions
+- Go to Navbar.css file and in that file after .navbar-search-icon .dot{...} add 3 @media queries
+- It is responsive now . But the header is not responsive as it was not in correct directions . So go to Header.css file and add media after .header-contents button{......} add two @media
+- And we have to make our explore menu responsive Then open ExploreMenu.css file and add @media
+- Images are responsive by default. No need to change
+- We need to make footer responsive . SO open footer.css file and add @media queries
+- It is fully responsive now 
+
+------------------------ FUNCTIONALITY ------------------------------------
+
+- In Navbar if we click on the menu the page needs to scroll down to menu section and if we click on the App it needs to scroll down to App Section
+- Go to Navbar.jsx file and in that file in ul there is Home li  change that li tag to Link ( while writing the link it gives suggestion click that it'll imports Link from React-router-dom ...If it's not giving suggestion then in terminal write this cmd -> npm install react-router-dom and see whether it is giving suggestion or not . If it's not giving after installing the router-dom package then type manually Link and in imports -> import { Link } from 'react-router-dom'; ) in that Link tag add to='/' (to property) and change rest of 3 li's to 'a' tag and add href's 
+- Now check whether the scroll is working or not
+- And observe it is scrolling quickly , to make it smoothly. For that open index.css file and in that file at very beginning there is *{...} in that add scroll-behaviour:smooth;
+
+-------------------------------- LOGIN POPUP ------------------------------
+
+- Now we have to add Login popup when we click on Sign in it vneeds to shoow that popup
+- In components create one folder called LoginPopup and also add jsx and css file for it and also import the css file into the jsx file 
+- Mount this LoginPopup folder in the App.jsx file for that create one state variable with showLogin,setShowLogin at topn of return statement
+- And create a ternary operator -> {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>} after return statement . Here we have passed setShowLogin as props 
+- We will send this showLogin to the Navbar where we can convert it into true or false... so that in same App.jsx file in Navbar component pass setShowLogin as props -> setShowLogin={setShowLogin} 
+- We need to destructuire it in Navbar Component ... Go to Navbar.jsx file in 6th line write like this -> ({setShowLogin}) . If we haven't done this it will show the error "The file doesn't exist"
+- And also do some changes in Navbar.jsx file Sign in button. In that button tag add onClick function  by setting it as true 
+- Now we can get access of setShowLogin in LoginPopup component . So we will destructure it in 5th line of LoginPopup.jsx file -> ({setShowLogin})
+- Add CSS properties for them
+
+--------------------------  CART PAGE -----------------------------------
+
+- In pages there was a Cart . Open the cart.jsx and css files
+- In the jsx file create a context variable of const{cartItems,food_list}=useContexct(StoreContext}. While writing the StoreContext it will give suggestion click it . It will automatically imports 
+- Then go to Navbar.jsx file in that file navbar-right div there was 2 img tags. In 2nd img tag for that img tag wrap the Link tag
+- Go to Cart.jsx file and after <hr /> tag create a map function with item, index as a parameters
+- Add CSS properties
+- Make cart page responsive by adding @media queries
+
+----------------------------- LOGIC to calc. subtotal and TOTAL -----------
+
+- Open StoreContext.jsx file in that file remove the useEffect which we have created before which is located after removeFromcart functionality 
+- Create one arrow function to calculate total price of the cart 
+- After creating arrow function pass that getTotalCartAmount in the context value ( const contextValue which is right below that const  getTotalCartAmount arrow function ) 
+- open cart.jsx file and pass getTotalCartAmount in const function  
+- To show the dot only when the product is available in the cart. If not available then dot should not be visible
+- Open navbar.jsx file and create a const {getTotalCartAmount} context(in line 8) which is below the state 
+- To do so in same file line 23 before there was a className = 'dot' change it to dynamic className 
+
+----------------------------- PLACE ORDER PAGE ---------------------------
+
+- To go to Placeorder then go to Cart.jsx file and create a navigate
+- Then in Cart.jsx there was a button (in line 61)  there add a onClick function to divert it to PlaceOrders page when clicked . PlaceOrder page route was defined in App.jsx file . That route was directed to the Orders page
+- Return to Placeorder.jsx file and create a form with className='place-order'
+- And we have to mount the getTotalCartAmount using context API . For that create a const context  
+- Add CSS properties
